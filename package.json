@@ -1,0 +1,15 @@
+{
+  "name": "browserify-webpack-monorepo",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
+  },
+  "scripts": {
+    "build": "pnpm -C ./packages/browserify-webpack build",
+    "dev": "pnpm -C ./packages/website dev"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3"
+  }
+}
