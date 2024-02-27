@@ -1,15 +1,21 @@
 {
-  "name": "browserify-webpack-monorepo",
+  "name": "webpack-browserify-monorepo",
   "private": true,
   "type": "module",
   "engines": {
     "node": "^18.0.0 || >=20.0.0"
   },
   "scripts": {
-    "build": "pnpm -C ./packages/browserify-webpack build",
-    "dev": "pnpm -C ./packages/website dev"
+    "build": "pnpm -r exec pnpm run build",
+    "dev": "pnpm -C ./packages/playground dev",
+    "clean": "rm -rf node_modules & pnpm -r exec rm -rf node_modules"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "enhanced-resolve@5.15.0": "patches/enhanced-resolve@5.15.0.patch"
+    }
   }
 }
