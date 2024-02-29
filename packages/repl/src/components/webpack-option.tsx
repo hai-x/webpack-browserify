@@ -20,8 +20,9 @@ declare global {
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function evalValue<T = any>(rawValue: string): T {
   const fn = new Function(`
-    var console, exports, global, module, process, require
-    return (\n${rawValue}\n)
+    var console = {}, exports = {}, global = globalThis, module = {}, process = {}, require
+    (\n${rawValue}\n)
+    return module
   `)
   return fn()
 }
@@ -30,16 +31,16 @@ window.__webpack_config__ = {
   mode: 'production',
   entry: {
     index: '/index.js'
+  },
+  output: {
+    clean: true
   }
 }
 
 const WebpackOptions: FC = () => {
-  const [v, setV] = useState(`{
-  mode: 'production',
-  entry: {
-    index: '/index.js'
-  }
-}`)
+  const [v, setV] = useState(
+    `module.exports = ${JSON.stringify(window.__webpack_config__)}`
+  )
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -74,8 +75,10 @@ const WebpackOptions: FC = () => {
           className="w-full"
           onClick={() => {
             try {
-              evalValue(`window.__webpack_config__ = ${v}`)
+              const module = evalValue(v)
+              window.__webpack_config__ = module.exports
             } catch (e) {
+              console.log(e)
               window.__webpack_config__ = {}
             }
           }}

@@ -1,5 +1,5 @@
 {
-  "name": "webpack-browserify-playground",
+  "name": "webpack-repl",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,6 +20,7 @@
     "lucide-react": "^0.341.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-toastify": "^10.0.4",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "webpack-browserify": "workspace:*",

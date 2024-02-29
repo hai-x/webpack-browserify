@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "pnpm -r exec pnpm run build",
-    "dev": "pnpm -C ./packages/playground dev",
+    "dev": "pnpm -C ./packages/repl dev",
     "clean": "rm -rf node_modules & pnpm -r exec rm -rf node_modules"
   },
   "devDependencies": {

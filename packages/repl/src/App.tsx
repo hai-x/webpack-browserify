@@ -1,6 +1,7 @@
 import { ModeToggle } from '@/components/mode-toggle'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import { FC } from 'react'
+import { ToastContainer } from 'react-toastify'
 import Webpack from './Webpack'
 import { Button } from './components/ui/button'
 import WebpackOptions from './components/webpack-option'
@@ -21,15 +22,18 @@ const Github = () => {
 const Header: FC = () => {
   return (
     <div
-      className="sticky top-0 pt-8"
+      className="sticky top-0 pt-4 z-20"
       style={{ backgroundColor: 'hsl(var(--background))' }}
     >
       <div className="flex">
         <div className="flex-1">
-          <h1 className="flex items-center">
-            <span className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl">
-              Webpack Browserify Playground
+          <h1 className="flex flex-col justify-center">
+            <span className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl text-slate-700 dark:text-slate-300">
+              Webpack Repl
             </span>
+            <div className="text-sm	font-extralight mt-1 text-slate-600 dark:text-slate-400">
+              Run Webpack in your browser.
+            </div>
           </h1>
         </div>
 
@@ -39,7 +43,7 @@ const Header: FC = () => {
           <ModeToggle />
         </div>
       </div>
-      <hr className="my-2" />
+      <hr className="my-4" />
     </div>
   )
 }
@@ -50,6 +54,16 @@ const App: FC = () => {
       <div className="flex-1 h-max">
         <Webpack />
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="light"
+      />
     </div>
   )
 }
