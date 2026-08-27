@@ -1,0 +1,40 @@
+/* istanbul ignore if -- @preserve: this escaper never emits an odd run of backslashes before a `\HEX` escape (literal `\` is doubled) */
+
+/* istanbul ignore if -- @preserve: when nested, `declarationStartLikely` routes every `--x:` to consumeADeclaration (which accepts custom properties), so this fallthrough is unreachable */
+
+/* istanbul ignore next -- @preserve: defensive fallback, all states are explicit above */
+
+/* istanbul ignore next -- @preserve: leading whitespace is discarded before the rule, so the prelude never starts with it */
+
+/* istanbul ignore next -- @preserve: only slow (>10ms) modules are logged, timing-dependent */
+
+/* istanbul ignore next -- @preserve: spec-general; every caller passes `pos` just past a +/-/. so `first` is never a bare digit here */
+
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * mime-db
+ * Copyright(c) 2014 Jonathan Ong
+ * Copyright(c) 2015-2022 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+/*! https://mths.be/punycode v1.4.1 by @mathias */
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+// printing, keep license/important comments (`/*!`, `@license`, `@preserve`) —

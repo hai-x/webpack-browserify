@@ -1,0 +1,13 @@
+diff --git a/lib/util/path.js b/lib/util/path.js
+index 4a65c6e303dda8d28871fe15e08b40d5f561b86f..59511830058aebcf414419bab26d12699ef5c5a9 100644
+--- a/lib/util/path.js
++++ b/lib/util/path.js
+@@ -18,7 +18,7 @@ const CHAR_DOT = ".".charCodeAt(0);
+ const CHAR_COLON = ":".charCodeAt(0);
+ 
+ const posixNormalize = path.posix.normalize;
+-const winNormalize = path.win32.normalize;
++const winNormalize = (...args) => path.win32.normalize(...args);
+ 
+ /**
+  * @enum {number}

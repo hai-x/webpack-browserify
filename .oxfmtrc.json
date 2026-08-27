@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "endOfLine": "lf",
+  "useTabs": false,
+  "tabWidth": 2,
+  "arrowParens": "always",
+  "jsxSingleQuote": false,
+  "semi": false,
+  "trailingComma": "none",
+  "quoteProps": "as-needed",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "singleQuote": true,
+  "sortImports": {
+    "newlinesBetween": false
+  },
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/assets/**",
+    "**/public/**",
+    "**/__snapshots__"
+  ]
+}

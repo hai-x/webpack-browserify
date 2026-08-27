@@ -1,0 +1,77 @@
+{
+  "name": "webpack-browserify",
+  "version": "0.0.2",
+  "description": "Run webpack in your browser.",
+  "keywords": [
+    "browserify",
+    "webpack"
+  ],
+  "homepage": "https://github.com/hai-x/webpack-browserify",
+  "author": "hai-x",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hai-x/webpack-browserify.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "dev": "tsx ./src/index.ts",
+    "test": "vitest run",
+    "lint": "oxlint ./src",
+    "format": "oxfmt ./src",
+    "build": "webpack build",
+    "prepublishOnly": "pnpm test && pnpm lint && pnpm format && pnpm build",
+    "release": "bumpp && npm publish"
+  },
+  "dependencies": {
+    "assert": "^2.1.0",
+    "browser-process-hrtime": "^1.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "builtin-modules": "^3.3.0",
+    "console-browserify": "^1.2.0",
+    "constants-browserify": "^1.0.0",
+    "crypto-browserify": "^3.12.0",
+    "domain-browser": "^5.7.0",
+    "events": "^3.3.0",
+    "https-browserify": "^1.0.0",
+    "memfs": "^4.7.7",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "punycode": "^2.3.1",
+    "querystring-es3": "^0.2.1",
+    "setimmediate": "^1.0.5",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "string_decoder": "^1.3.0",
+    "timers-browserify": "^2.0.12",
+    "tty-browserify": "^0.0.1",
+    "url": "^0.11.3",
+    "util": "^0.12.5",
+    "vm-browserify": "^1.1.2",
+    "webpack": "^5.110.0",
+    "webpack-cli": "^7.2.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^20.5.1",
+    "ts-loader": "^9.5.1",
+    "tsx": "^3.12.1",
+    "typescript": "^5.0.4",
+    "vitest": "^1.2.2"
+  }
+}

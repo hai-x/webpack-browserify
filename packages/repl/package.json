@@ -1,0 +1,48 @@
+{
+  "name": "webpack-repl",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack build --mode production"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "4.7.0",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@vercel/analytics": "^1.2.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lodash-es": "^4.17.21",
+    "lucide-react": "^0.341.0",
+    "monaco-editor": "0.56.0",
+    "path-browserify": "1.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7",
+    "webpack-browserify": "workspace:*",
+    "zustand": "^4.5.1"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.16.1",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^20.5.1",
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "autoprefixer": "^10.4.17",
+    "cssnano": "^8.0.10",
+    "minimizer-webpack-plugin": "^5.8.0",
+    "postcss": "^8.4.35",
+    "postcss-loader": "^8.2.1",
+    "swc-loader": "^0.2.7",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.0.4",
+    "webpack": "^5.110.0",
+    "webpack-cli": "^7.2.2",
+    "webpack-dev-server": "^6.0.0"
+  }
+}
