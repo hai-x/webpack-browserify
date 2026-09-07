@@ -1,3 +1,16 @@
+/* istanbul ignore if -- @preserve: a join grows a list only before its rule
+		   is noted unless distant merges are on, which skip this; kept as the guard */
+
+/* istanbul ignore if -- @preserve: no two slots of the one family this is
+			   asked about (`text-decoration`) take the same value, so nothing reaches
+			   this; it is the same refusal `_familyValue` makes the other way round */
+
+/* istanbul ignore if -- @preserve: the printer closes an unclosed url */
+
+/* istanbul ignore if -- @preserve: the sRGB pass above folded every one
+			   of these and returned before this where any of them declined, so the
+			   same call cannot answer differently here */
+
 /* istanbul ignore if -- @preserve: this escaper never emits an odd run of backslashes before a `\HEX` escape (literal `\` is doubled) */
 
 /* istanbul ignore if -- @preserve: when nested, `declarationStartLikely` routes every `--x:` to consumeADeclaration (which accepts custom properties), so this fallthrough is unreachable */
@@ -5,6 +18,10 @@
 /* istanbul ignore next -- @preserve: defensive fallback, all states are explicit above */
 
 /* istanbul ignore next -- @preserve: leading whitespace is discarded before the rule, so the prelude never starts with it */
+
+/* istanbul ignore next -- @preserve: only slow (>10ms) categories are logged, timing-dependent */
+
+/* istanbul ignore next -- @preserve: only slow (>10ms) loader groups are logged, timing-dependent */
 
 /* istanbul ignore next -- @preserve: only slow (>10ms) modules are logged, timing-dependent */
 
@@ -37,4 +54,12 @@
 
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
-// printing, keep license/important comments (`/*!`, `@license`, `@preserve`) —
+/**
+ * Which comments `extractComments` takes out, read as terser-webpack-plugin
+ * reads it: `true`, `"some"` or an object without a condition is terser's `some`
+ * bar IE's `@cc_on`, which marks conditional compilation rather than a license.
+ * @param {PluginExtractComments | MinimizeExtractComments | undefined} option as configured
+ * @returns {CommentPredicate | undefined} the condition, or undefined when nothing is extracted
+ */
+
+// printing, keeps the license comments `/*!`, `@license` and `@preserve` — the

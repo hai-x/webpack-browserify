@@ -18,6 +18,10 @@ module.exports = {
         loader: path.resolve(__dirname, 'scripts/split-placeholder-loader.cjs')
       },
       {
+        test: /webpack[\\/]lib[\\/]config[\\/]defaults\.js$/,
+        loader: path.resolve(__dirname, 'scripts/inline-minify-loader.cjs')
+      },
+      {
         test: /webpack[\\/]lib[\\/]Compilation\.js$/,
         loader: path.resolve(__dirname, 'scripts/pin-class-name-loader.cjs'),
         options: { name: 'Compilation' }
@@ -47,7 +51,11 @@ module.exports = {
       csso: false,
       esbuild: false,
       lightningcss: false,
-      postcss: false
+      postcss: false,
+      svgo: false,
+      sharp: false,
+      '@napi-rs/image': false,
+      imagemin: false
     },
     // https://webpack.js.org/configuration/resolve/#resolvefallback
     fallback: {
