@@ -8,7 +8,7 @@ import {
 } from '@/lib/config'
 import { extractGraph, type GraphData } from '@/lib/graph'
 import { disposeModel } from '@/lib/monaco'
-import { readSnapshotFromUrl } from '@/lib/share'
+import { readSnapshotFromUrl, resolveRspackVersion } from '@/lib/share'
 
 export type Diagnostic = {
   level: 'error' | 'warning'
@@ -295,6 +295,13 @@ export const useStore = create<State & Actions>()((set, get) => ({
     }
   }
 }))
+
+// rspack links need a version; fetch it unless the shared hash had one
+if (!shared?.rspackVersion) {
+  resolveRspackVersion().then((rspackVersion) =>
+    useStore.setState({ rspackVersion })
+  )
+}
 
 export const useSnapshot = () =>
   useStore((s) => ({

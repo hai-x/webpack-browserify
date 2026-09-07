@@ -41,7 +41,7 @@
     "swc-loader": "^0.2.7",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.0.4",
-    "webpack": "^5.110.0",
+    "webpack": "^5.110.3",
     "webpack-cli": "^7.2.2",
     "webpack-dev-server": "^6.0.0"
   }

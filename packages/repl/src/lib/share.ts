@@ -106,6 +106,19 @@ export const decodeSnapshot = (hash: string): SharedSnapshot | null => {
 
 export const readSnapshotFromUrl = () => decodeSnapshot(location.hash.slice(1))
 
+export const resolveRspackVersion = async (): Promise<string | null> => {
+  try {
+    const response = await fetch('https://registry.npmjs.org/@rspack/core/latest')
+    if (!response.ok) return null
+    const data: { version?: unknown } | null = await response.json()
+    return typeof data?.version === 'string' && data.version
+      ? data.version
+      : null
+  } catch {
+    return null
+  }
+}
+
 export const writeSnapshotToUrl = (s: Snapshot) => {
   history.replaceState(null, '', `#${encodeSnapshot(s)}`)
   return location.href

@@ -63,7 +63,7 @@
     "url": "^0.11.3",
     "util": "^0.12.5",
     "vm-browserify": "^1.1.2",
-    "webpack": "^5.110.0",
+    "webpack": "^5.110.3",
     "webpack-cli": "^7.2.2"
   },
   "devDependencies": {

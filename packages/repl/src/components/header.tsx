@@ -1,13 +1,33 @@
-import { Check, Github, Loader2, PanelLeft, Play, Share2 } from 'lucide-react'
+import {
+  Check,
+  Github,
+  Link,
+  Loader2,
+  PanelLeft,
+  Play,
+  Share2
+} from 'lucide-react'
 import { FC, useState } from 'react'
 import { Logo } from '@/components/logo'
 import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
-import { writeSnapshotToUrl } from '@/lib/share'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
+import { type Snapshot, writeSnapshotToUrl } from '@/lib/share'
 import { cn } from '@/lib/utils'
 import { useStore } from '@/store'
 
 const isMac = /Mac|iPhone|iPad/.test(navigator.platform)
+
+const snapshot = (): Snapshot => {
+  const { files, config, configPath, version, rspackVersion } =
+    useStore.getState()
+  return { files, config, configPath, version, rspackVersion }
+}
 
 export const Header: FC = () => {
   const status = useStore((s) => s.status)
@@ -18,15 +38,7 @@ export const Header: FC = () => {
   const [copied, setCopied] = useState(false)
 
   const share = async () => {
-    const { files, config, configPath, version, rspackVersion } =
-      useStore.getState()
-    const url = writeSnapshotToUrl({
-      files,
-      config,
-      configPath,
-      version,
-      rspackVersion
-    })
+    const url = writeSnapshotToUrl(snapshot())
     try {
       await navigator.clipboard.writeText(url)
     } catch {
@@ -97,19 +109,24 @@ export const Header: FC = () => {
           </kbd>
         </Button>
 
-        <Button
-          variant="outline"
-          size="sm"
-          className="h-8 gap-1.5 px-3"
-          onClick={share}
-        >
-          {copied ? (
-            <Check className="h-3.5 w-3.5 text-success" />
-          ) : (
-            <Share2 className="h-3.5 w-3.5" />
-          )}
-          {copied ? 'Copied' : 'Share'}
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="sm" className="h-8 gap-1.5 px-3">
+              {copied ? (
+                <Check className="h-3.5 w-3.5 text-success" />
+              ) : (
+                <Share2 className="h-3.5 w-3.5" />
+              )}
+              {copied ? 'Copied' : 'Share'}
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="min-w-[13rem]">
+            <DropdownMenuItem className="gap-2" onSelect={share}>
+              <Link className="h-3.5 w-3.5 text-muted-foreground" />
+              Copy link
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         <div className="mx-1 h-5 w-px bg-border" />
 
